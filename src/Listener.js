@@ -8,12 +8,15 @@ class Listener {
 
   async listen(message) {
     try {
-      const { targetEmail, playlistId } = JSON.parse(message.content.toString())
-
-      const playlist = await this._playlistsService.getPlaylistsById(playlistId)
+      const { targetEmail, playlistId } = JSON.parse(
+        message.content.toString()
+      )
+      const playlist = await this._playlistsService.getPlaylistsById(
+        playlistId
+      )
       const result = await this._mailSender.sendEmail(
         targetEmail,
-        JSON.stringify({playlist})
+        JSON.stringify({ playlist })
       )
       console.log(result)
     } catch (error) {

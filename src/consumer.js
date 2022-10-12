@@ -17,7 +17,7 @@ const init = async () => {
     durable: true,
   })
 
-  channel.consume("export:playlists", listener.listen, { noAck: true })  
+  channel.consume("export:playlists", listener.listen, { noAck: true })
 }
- 
+
 init()
